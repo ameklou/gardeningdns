@@ -27,3 +27,7 @@ def index(request):
         else:
             form= LoginForm()
             return render(request, 'main/index.html',{'form':form})
+
+
+def dashboard(request):
+    return render(request,'main/dashboard.html')
