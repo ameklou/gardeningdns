@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, authenticate, logout
 from . forms import LoginForm
+from dnsimple import DNSimple
 # Create your views here.
 
 
-
-
+token="tgOrJJxqkGfu3m01Mv0ssUo4S0MCpmkc"
+email="geekrum@gmail.com"
+password="#open@bunshin"
+dns=DNSimple(email,password)
 def index(request):
     if request.method =='POST':
         form = LoginForm(request.POST)
@@ -30,4 +33,6 @@ def index(request):
 
 
 def dashboard(request):
+    #dns=DNSimple()
+    print(dns.check('simpleklou.com'))
     return render(request,'main/dashboard.html')
